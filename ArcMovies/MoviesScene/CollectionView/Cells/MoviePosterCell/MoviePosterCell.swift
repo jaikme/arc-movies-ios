@@ -32,7 +32,7 @@ extension MoviePosterCell {
         // Config. poster container
         PosterContainer.layer.masksToBounds = true
         PosterContainer.layer.cornerRadius = 8
-        
+        PosterContainer.alpha = 1
         // Config. poster shadow
         configureShadow()
     }
@@ -45,6 +45,7 @@ extension MoviePosterCell {
     
     fileprivate func commonInit() {
         configureViews()
+        configureShadow()
     }
 }
 
@@ -53,18 +54,9 @@ extension MoviePosterCell {
 extension MoviePosterCell {
     
     fileprivate func configureViews() {
-        
-        
-        
-
-        
-        // Config. self
         contentView.layer.masksToBounds = false
         layer.masksToBounds = false
-        
-        
     }
-    
     
     fileprivate func configureShadow() {
         let shadowView = UIView(frame: .zero)
@@ -72,10 +64,11 @@ extension MoviePosterCell {
         shadowView.translatesAutoresizingMaskIntoConstraints = false
         shadowView.layer.masksToBounds = false
         shadowView.layer.shadowColor = UIColor.black.cgColor
-        shadowView.layer.shadowRadius = 10
-        shadowView.layer.shadowOpacity = 1
-        shadowView.layer.shadowOffset = CGSize(width: 0, height: 0)
+        shadowView.layer.shadowRadius = 8
+        shadowView.layer.shadowOpacity = 0.09
+        shadowView.layer.shadowOffset = CGSize(width: 2, height: 0)
         shadowView.layer.shouldRasterize = true
+        shadowView.layer.shadowPath = UIBezierPath(roundedRect: PosterContainer.bounds, cornerRadius: PosterContainer.layer.cornerRadius).cgPath
         addShowViewWithConstraint(shadowView)
     }
 }
@@ -85,11 +78,14 @@ extension MoviePosterCell {
 extension MoviePosterCell {
 
     func addShowViewWithConstraint(_ view: UIView) {
-        contentView.insertSubview(view, belowSubview: Poster)
+        // Insert our shadow to view
+        contentView.insertSubview(view, belowSubview: PosterContainer)
+
+        // Set Constraint
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.topAnchor.constraint(equalTo: topAnchor).isActive = true
-        view.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
-        view.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
-        view.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
+        view.topAnchor.constraint(equalTo: PosterContainer.topAnchor).isActive = true
+        view.bottomAnchor.constraint(equalTo: PosterContainer.bottomAnchor).isActive = true
+        view.trailingAnchor.constraint(equalTo: PosterContainer.trailingAnchor).isActive = true
+        view.leadingAnchor.constraint(equalTo: PosterContainer.leadingAnchor).isActive = true
     }
 }
