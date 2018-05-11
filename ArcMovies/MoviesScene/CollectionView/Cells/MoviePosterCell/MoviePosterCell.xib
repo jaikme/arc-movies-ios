@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="MoviePosterCell" customModule="ArcMovies" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="284" height="523"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="284" height="523"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wd8-3n-dfw" userLabel="PosterContainer">
+                        <rect key="frame" x="0.0" y="51.5" width="284" height="420"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avengers" translatesAutoresizingMaskIntoConstraints="NO" id="Fq5-g0-E4Y">
+                                <rect key="frame" x="0.0" y="0.0" width="284" height="420"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Fq5-g0-E4Y" firstAttribute="top" secondItem="wd8-3n-dfw" secondAttribute="top" id="6oK-cV-dEh"/>
+                            <constraint firstAttribute="bottom" secondItem="Fq5-g0-E4Y" secondAttribute="bottom" id="6xN-UJ-mLu"/>
+                            <constraint firstAttribute="height" constant="420" id="azE-pn-toX"/>
+                            <constraint firstAttribute="trailing" secondItem="Fq5-g0-E4Y" secondAttribute="trailing" id="fcS-i2-0ZQ"/>
+                            <constraint firstItem="Fq5-g0-E4Y" firstAttribute="leading" secondItem="wd8-3n-dfw" secondAttribute="leading" id="ggG-V1-PXa"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="wd8-3n-dfw" secondAttribute="trailing" id="4Hc-kI-hBg"/>
+                <constraint firstItem="wd8-3n-dfw" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="AdQ-ek-gfX"/>
+                <constraint firstItem="wd8-3n-dfw" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="QCO-35-yZk"/>
+                <constraint firstItem="wd8-3n-dfw" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="ePs-95-kPX"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <size key="customSize" width="284" height="523"/>
+            <connections>
+                <outlet property="Poster" destination="Fq5-g0-E4Y" id="Sfo-kH-jSA"/>
+                <outlet property="PosterContainer" destination="wd8-3n-dfw" id="ABK-6c-jrq"/>
+            </connections>
+            <point key="canvasLocation" x="42" y="9.5"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="avengers" width="300" height="450"/>
+    </resources>
+</document>
