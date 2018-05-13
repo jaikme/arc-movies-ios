@@ -13,6 +13,6 @@ struct Strings {
     
     struct Movies {
         
-        static let screenTitle = NSLocalizedString("Upcoming movies", comment: "List of upcoming movies in theatres")
+        static let title = NSLocalizedString("Upcoming movies", comment: "List of upcoming movies in theatres")
     }
 }
