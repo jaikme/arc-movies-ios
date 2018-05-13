@@ -21,9 +21,18 @@ final class MoviePosterCell: UICollectionViewCell {
     private var shadowView: UIView? = nil
     
     var viewModel: MoviesViewModel? {
-        
         didSet {
             setPosterImage()
+        }
+    }
+    
+    var isTouched: Bool = false {
+        didSet {
+            var transform = CGAffineTransform.identity
+            if isTouched { transform = transform.scaledBy(x: 0.96, y: 0.96) }
+            UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0, options: [], animations: {
+                self.transform = transform
+            }, completion: nil)
         }
     }
     
@@ -43,6 +52,27 @@ final class MoviePosterCell: UICollectionViewCell {
     public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
+    
+    
+    // MARK: - Touch Override Effect
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        isTouched = true
+    }
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesEnded(touches, with: event)
+        isTouched = false
+    }
+    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesCancelled(touches, with: event)
+        isTouched = false
+    }
+    
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        isTouched = true
+    }
+    
 }
 
 // MARK: Lifecycle
