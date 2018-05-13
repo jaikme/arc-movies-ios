@@ -14,5 +14,6 @@ import Foundation
 struct MoviesViewModel {
     
     let title: String
+    let voteAverage: Double
     let posterURL: URL?
 }
