@@ -12,7 +12,7 @@ import UIKit
 /// _ImageMemoryStore_ is an image store backed by an in-memory cache
 class ImageMemoryStore: ImageStoreProtocol {
     
-    fileprivate var imageCache = [String: UIImage]()
+    private var imageCache = [String: UIImage]()
     
     
     // MARK: - Initializers
