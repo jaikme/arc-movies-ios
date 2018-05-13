@@ -207,7 +207,7 @@ extension MoviesViewController : Colorable {
     }
 }
 
-// MARK: - ArtistsPresenterOutput
+// MARK: - MoviesPresenterOutput
 
 extension MoviesViewController : MoviesViewControllerInput, ErrorPresentable {
     func displayMovies(viewModels: [MoviesViewModel]) {
