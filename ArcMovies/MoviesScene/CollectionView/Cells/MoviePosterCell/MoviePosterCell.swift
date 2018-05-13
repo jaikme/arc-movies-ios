@@ -8,13 +8,33 @@
 
 import UIKit
 
+// MARK: -  MoviePosterCell
+
+/// _MoviePosterCell_ is the collection view cell responsible to display our Movie poster
 final class MoviePosterCell: UICollectionViewCell {
     
     @IBOutlet private weak var Poster: UIImageView!
     @IBOutlet private weak var PosterContainer: UIView!
+    @IBOutlet private weak var activityIndicator: UIActivityIndicatorView!
     
     private let cornerRadius: CGFloat = 10
-
+    private var shadowView: UIView? = nil
+    
+    var viewModel: MoviesViewModel? {
+        
+        didSet {
+            setPosterImage()
+        }
+    }
+    
+    // Prepate cell for image block load
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        Poster.alpha = 0
+        Poster.image = nil
+        shadowView?.layer.shadowPath = UIBezierPath(roundedRect: CGRect(x: 0, y: 0, width: bounds.width, height: bounds.height), cornerRadius: PosterContainer.layer.cornerRadius).cgPath
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
@@ -35,9 +55,8 @@ extension MoviePosterCell {
         commonInit()
     }
 
-    fileprivate func commonInit() {
+    private func commonInit() {
         configureViews()
-        configureShadow()
     }
 }
 
@@ -45,7 +64,47 @@ extension MoviePosterCell {
 
 extension MoviePosterCell {
     
-    fileprivate func configureViews() {
+    private func setPosterImage() {
+        // Start loader feedback
+        activityIndicator.startAnimating()
+        
+        // Load the poster url
+        Poster.setImageURL(url: viewModel?.posterURL) { [weak self] in
+            
+            // Stop de loader when completes
+            self?.activityIndicator.stopAnimating()
+            
+            //Show Poster animated
+            self?.showPoster()
+            
+            // Show or Create shadow
+            self?.configureShadow()
+        }
+    }
+    
+    private func showPoster() {
+        DispatchQueue.main.async {
+            UIView.animate(withDuration: 0.2) { [weak self] in
+                self?.Poster.alpha = 1
+                self?.layoutIfNeeded()
+            }
+        }
+    }
+    
+    private func showShadow(_ shadow : UIView?) {
+        guard shadowView == nil else { return }
+        DispatchQueue.main.async {
+            UIView.animate(withDuration: 0.2) { [weak self] in
+                shadow?.alpha = 1
+                self?.layoutIfNeeded()
+            }
+        }
+        
+        // Store shadow
+        shadowView = shadow
+    }
+
+    private func configureViews() {
         // Config. poster container
         PosterContainer.layer.masksToBounds = true
         PosterContainer.layer.cornerRadius = cornerRadius
@@ -56,19 +115,21 @@ extension MoviePosterCell {
         layer.masksToBounds = false
     }
     
-    fileprivate func configureShadow() {
+    private func configureShadow() {
+        guard self.shadowView == nil else { return }
         var shadowView = UIView(frame: .zero)
-        
+
         // Set poster shadow
         With(&shadowView) {
+            $0.alpha = 0
             $0.backgroundColor = UIColor(white: 0, alpha: 0)
             $0.layer.masksToBounds = false
             $0.layer.shadowColor = UIColor.black.cgColor
             $0.layer.shadowRadius = 10
-            $0.layer.shadowOpacity = 0.4
-            $0.layer.shadowOffset = CGSize(width: 0, height: 3)
+            $0.layer.shadowOpacity = 0.3
+            $0.layer.shadowOffset = CGSize(width: 0, height: 5)
             $0.layer.shouldRasterize = true
-            $0.layer.shadowPath = UIBezierPath(roundedRect: CGRect(x: 0, y: 0, width: Poster.bounds.width, height: PosterContainer.bounds.height), cornerRadius: PosterContainer.layer.cornerRadius).cgPath
+            $0.layer.shadowPath = UIBezierPath(roundedRect: CGRect(x: 0, y: 0, width: bounds.width, height: bounds.height), cornerRadius: PosterContainer.layer.cornerRadius).cgPath
         }
         addShowViewWithConstraint(shadowView)
     }
@@ -88,5 +149,8 @@ extension MoviePosterCell {
         shadow.bottomAnchor.constraint(equalTo: PosterContainer.bottomAnchor).isActive = true
         shadow.trailingAnchor.constraint(equalTo: PosterContainer.trailingAnchor).isActive = true
         shadow.leadingAnchor.constraint(equalTo: PosterContainer.leadingAnchor).isActive = true
+        
+        // Show shadow
+        showShadow(shadow)
     }
 }

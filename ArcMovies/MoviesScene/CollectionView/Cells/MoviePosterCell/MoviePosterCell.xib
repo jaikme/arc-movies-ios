@@ -5,7 +5,6 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -13,46 +12,53 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="MoviePosterCell" customModule="ArcMovies" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="398" height="586"/>
-            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES"/>
+            <rect key="frame" x="0.0" y="0.0" width="398" height="628"/>
+            <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="398" height="586"/>
+                <rect key="frame" x="0.0" y="0.0" width="398" height="628"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wd8-3n-dfw" userLabel="PosterContainer">
-                        <rect key="frame" x="63.5" y="90.5" width="270" height="405"/>
+                    <view clipsSubviews="YES" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="wd8-3n-dfw" userLabel="PosterContainer">
+                        <rect key="frame" x="0.0" y="0.0" width="398" height="628"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avengers" translatesAutoresizingMaskIntoConstraints="NO" id="Fq5-g0-E4Y">
-                                <rect key="frame" x="0.0" y="0.0" width="270" height="405"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Fq5-g0-E4Y">
+                                <rect key="frame" x="0.0" y="0.0" width="398" height="628"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.84875372023809526" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Fq5-g0-E4Y" firstAttribute="top" secondItem="wd8-3n-dfw" secondAttribute="top" id="6oK-cV-dEh"/>
                             <constraint firstAttribute="bottom" secondItem="Fq5-g0-E4Y" secondAttribute="bottom" id="6xN-UJ-mLu"/>
-                            <constraint firstAttribute="width" secondItem="wd8-3n-dfw" secondAttribute="height" multiplier="2:3" id="D4j-XY-llE"/>
-                            <constraint firstAttribute="width" constant="270" id="GMz-xA-3ty"/>
+                            <constraint firstItem="Fq5-g0-E4Y" firstAttribute="centerY" secondItem="wd8-3n-dfw" secondAttribute="centerY" id="TTb-L1-1jB"/>
+                            <constraint firstItem="Fq5-g0-E4Y" firstAttribute="centerX" secondItem="wd8-3n-dfw" secondAttribute="centerX" id="dHD-Wh-UBJ"/>
                             <constraint firstAttribute="trailing" secondItem="Fq5-g0-E4Y" secondAttribute="trailing" id="fcS-i2-0ZQ"/>
                             <constraint firstItem="Fq5-g0-E4Y" firstAttribute="leading" secondItem="wd8-3n-dfw" secondAttribute="leading" id="ggG-V1-PXa"/>
                         </constraints>
                     </view>
+                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="ENe-3r-yZP">
+                        <rect key="frame" x="189" y="304" width="20" height="20"/>
+                        <color key="color" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </activityIndicatorView>
                 </subviews>
             </view>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="wd8-3n-dfw" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="BpK-Ly-Hno"/>
-                <constraint firstItem="wd8-3n-dfw" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="kNT-60-VLv"/>
+                <constraint firstItem="ENe-3r-yZP" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="07v-EK-vSL"/>
+                <constraint firstItem="wd8-3n-dfw" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="AH1-qI-Ljh"/>
+                <constraint firstItem="wd8-3n-dfw" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="Twn-KS-v0C"/>
+                <constraint firstItem="ENe-3r-yZP" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="WMO-FJ-waA"/>
+                <constraint firstAttribute="trailing" secondItem="wd8-3n-dfw" secondAttribute="trailing" id="ftP-G0-O7O"/>
+                <constraint firstAttribute="bottom" secondItem="wd8-3n-dfw" secondAttribute="bottom" id="kzJ-IM-HrQ"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
-            <size key="customSize" width="398" height="586"/>
+            <size key="customSize" width="398" height="628"/>
             <connections>
                 <outlet property="Poster" destination="Fq5-g0-E4Y" id="Sfo-kH-jSA"/>
                 <outlet property="PosterContainer" destination="wd8-3n-dfw" id="ABK-6c-jrq"/>
+                <outlet property="activityIndicator" destination="ENe-3r-yZP" id="ftc-CM-hBr"/>
             </connections>
-            <point key="canvasLocation" x="-94" y="41"/>
+            <point key="canvasLocation" x="-94" y="62"/>
         </collectionViewCell>
     </objects>
-    <resources>
-        <image name="avengers" width="300" height="450"/>
-    </resources>
 </document>
