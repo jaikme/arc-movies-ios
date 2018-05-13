@@ -18,9 +18,10 @@ struct Movie {
     let posterPath: String
     let overview: String
     let releaseDate: String
+    let posterURL: URL?
 }
 
-extension Movie {
+extension Movie : Parsable {
     
     private struct Constants {
         
@@ -29,6 +30,20 @@ extension Movie {
         static let posterPathKey = "poster_path"
         static let overviewKey = "overview"
         static let releaseDateKey = "release_date"
+    }
+    
+    static func fromJSON(json: [String: Any]) -> Movie? {
+        guard
+            let id = json[Constants.idKey] as? String,
+            let title = json[Constants.titleKey] as? String,
+            let posterPath = json[Constants.posterPathKey] as? String,
+            let overview = json[Constants.overviewKey] as? String,
+            let releaseDate = json[Constants.releaseDateKey] as? String,
+            let posterUrl = URL(string: "\(MovieDBAPI.imageUrl.rawValue)\(posterPath)") else {
+            return nil
+        }
+        
+        return Movie(id: id, title: title, posterPath: posterPath, overview: overview, releaseDate: releaseDate, posterURL: posterUrl)
     }
 }
 
