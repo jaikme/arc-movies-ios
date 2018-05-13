@@ -52,7 +52,7 @@ final class MoviesInteractor {
     /// Initializes an instance of _MoviesInteractor_ with an output and a worker
     ///
     /// - parameter output: The interactors output
-    /// - parameter worker: The artits worker used to fetch movies
+    /// - parameter worker: The movies worker used to fetch movies
     ///
     /// - returns: An instance of _MoviesInteractor_
     init(output: MoviesInteractorOutput, worker: MoviesWorker = MoviesWorker()) {

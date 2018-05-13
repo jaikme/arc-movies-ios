@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 extension AppDelegate {
     
-    fileprivate func styleNavigationBar() {
+    private func styleNavigationBar() {
         
         // Gives a transparent background to our app
         UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)

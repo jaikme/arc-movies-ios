@@ -12,7 +12,7 @@ import UIKit
 
 extension UIImageView {
     
-    func setImageURL(url: URL?, placeholder: UIImage? = nil) {
+    func setImageURL(url: URL?, placeholder: UIImage? = nil, completion: @escaping () -> Void) {
         
         guard let imageURL = url else {
             
@@ -24,6 +24,7 @@ extension UIImageView {
         ImageManager.sharedInstance.loadImage(url: imageURL) { [weak self] image, error in
             guard let `self` = self else { return }
             self.image = image
+            completion()
         }
     }
 }

@@ -11,7 +11,7 @@ import Foundation
 /// _MoviesConfigurator_ is a class responsible for configuring the VIP scene pathways for _MoviesViewController_
 final class MoviesConfigurator {
     
-    /// Singleton instance of _ArtistConfigurator_
+    /// Singleton instance of _MovieConfigurator_
     static let sharedInstance = MoviesConfigurator()
     
     
@@ -22,11 +22,11 @@ final class MoviesConfigurator {
     /// - parameter viewController: The view controller
     func configure(viewController: MoviesViewController) {
         
-        //let router = MoviesRouter(viewController: viewController)
-        //let presenter = MoviesPresenter(output: viewController)
-        //let interactor = MoviesInteractor(output: presenter)
+        let router = MoviesRouter(viewController: viewController)
+        let presenter = MoviesPresenter(output: viewController)
+        let interactor = MoviesInteractor(output: presenter)
         
         viewController.output = interactor
-        //viewController.router = router
+        viewController.router = router
     }
 }

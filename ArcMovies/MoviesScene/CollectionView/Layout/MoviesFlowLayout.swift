@@ -10,12 +10,12 @@ import UIKit
 
 class MoviesFlowLayout: UICollectionViewFlowLayout {
 
-    fileprivate var lastCollectionViewSize: CGSize = CGSize.zero
+    private var lastCollectionViewSize: CGSize = CGSize.zero
 
     private let centerOffset: CGFloat = 0
-    private let scaleOffset: CGFloat = 200
+    private let scaleOffset: CGFloat = 190
     private let minScaleFactor: CGFloat = 0.8
-    private let minAlphaFactor: CGFloat = 0.5
+    private let minAlphaFactor: CGFloat = 0.9
 
     init(itemSize: CGSize) {
         super.init()
@@ -32,9 +32,9 @@ class MoviesFlowLayout: UICollectionViewFlowLayout {
 
 extension MoviesFlowLayout {
     
-    fileprivate func commonInit(_ itemSize: CGSize) {
+    private func commonInit(_ itemSize: CGSize) {
         
-        minimumLineSpacing = -5
+        minimumLineSpacing = 5
         scrollDirection = .horizontal
         self.itemSize = itemSize
     }
@@ -45,7 +45,7 @@ extension MoviesFlowLayout {
 
 extension  MoviesFlowLayout {
 
-    fileprivate func configureInsets() {
+    private func configureInsets() {
         guard let collectionView = self.collectionView else {
             return
         }

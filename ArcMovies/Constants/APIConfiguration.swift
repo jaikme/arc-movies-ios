@@ -17,7 +17,7 @@ struct MovieDBAPI {
 
 public enum BaseURLType : String {
     case production = "https://api.themoviedb.org/3/"
-    case imageProduction = "https://image.tmdb.org/t/p/w300"
+    case imageProduction = "https://image.tmdb.org/t/p/w400"
 }
 
 // MARK: - MovieDBAPIEndpoint

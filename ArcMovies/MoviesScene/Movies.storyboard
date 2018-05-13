@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2hx-be-zYQ">
-    <device id="retina3_5" orientation="portrait">
+    <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -13,8 +13,8 @@
         <scene sceneID="hrj-jb-M2K">
             <objects>
                 <navigationController id="2hx-be-zYQ" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="Hbu-VC-838">
-                        <rect key="frame" x="0.0" y="20" width="320" height="96"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Hbu-VC-838">
+                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -25,16 +25,19 @@
             </objects>
             <point key="canvasLocation" x="-1162" y="-17"/>
         </scene>
-        <!--Movies upcoming -->
+        <!--Upcoming Movies-->
         <scene sceneID="vh5-av-9o0">
             <objects>
                 <viewController id="484-Us-S64" customClass="MoviesViewController" customModule="ArcMovies" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4w1-hS-tlS">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="HgX-FJ-2L4">
-                                <rect key="frame" x="0.0" y="146" width="320" height="274"/>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="rHO-kE-i1Q">
+                                <rect key="frame" x="150" y="274" width="20" height="20"/>
+                            </activityIndicatorView>
+                            <collectionView multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="HgX-FJ-2L4">
+                                <rect key="frame" x="0.0" y="64" width="320" height="434"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="b3o-PY-AhB">
                                     <size key="itemSize" width="107" height="143"/>
@@ -44,19 +47,47 @@
                                 </collectionViewFlowLayout>
                                 <cells/>
                             </collectionView>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b2C-Ck-mk3">
+                                <rect key="frame" x="16" y="483" width="178" height="55"/>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0" textAlignment="right" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="35" adjustsLetterSpacingToFitWidth="YES" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sgz-MK-cg4" userLabel="Movie Rate">
+                                <rect key="frame" x="204" y="483" width="100" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="OfO-FT-kNH"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="40"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="HgX-FJ-2L4" firstAttribute="top" secondItem="BTg-fZ-LJJ" secondAttribute="top" constant="30" id="FK9-fT-7lC"/>
+                            <constraint firstItem="b2C-Ck-mk3" firstAttribute="top" secondItem="HgX-FJ-2L4" secondAttribute="bottom" constant="-15" id="2U9-OQ-GQk"/>
+                            <constraint firstItem="sgz-MK-cg4" firstAttribute="leading" secondItem="b2C-Ck-mk3" secondAttribute="trailing" constant="10" id="EiW-4j-ACp"/>
+                            <constraint firstItem="HgX-FJ-2L4" firstAttribute="top" secondItem="BTg-fZ-LJJ" secondAttribute="top" id="FK9-fT-7lC"/>
+                            <constraint firstItem="BTg-fZ-LJJ" firstAttribute="bottom" secondItem="b2C-Ck-mk3" secondAttribute="bottom" constant="30" id="K0c-T6-ihK"/>
+                            <constraint firstItem="b2C-Ck-mk3" firstAttribute="leading" secondItem="BTg-fZ-LJJ" secondAttribute="leading" constant="16" id="gsR-Se-IYk"/>
+                            <constraint firstItem="sgz-MK-cg4" firstAttribute="top" secondItem="b2C-Ck-mk3" secondAttribute="top" id="jfg-ua-sgM"/>
+                            <constraint firstItem="BTg-fZ-LJJ" firstAttribute="trailing" secondItem="sgz-MK-cg4" secondAttribute="trailing" constant="16" id="mWf-1r-2CF"/>
+                            <constraint firstItem="rHO-kE-i1Q" firstAttribute="centerY" secondItem="4w1-hS-tlS" secondAttribute="centerY" id="nBK-1d-80s"/>
                             <constraint firstItem="HgX-FJ-2L4" firstAttribute="leading" secondItem="BTg-fZ-LJJ" secondAttribute="leading" id="oXS-r8-P14"/>
-                            <constraint firstItem="BTg-fZ-LJJ" firstAttribute="bottom" secondItem="HgX-FJ-2L4" secondAttribute="bottom" constant="60" id="qrB-9Z-VKn"/>
                             <constraint firstItem="BTg-fZ-LJJ" firstAttribute="trailing" secondItem="HgX-FJ-2L4" secondAttribute="trailing" id="z6r-28-cW7"/>
+                            <constraint firstItem="rHO-kE-i1Q" firstAttribute="centerX" secondItem="4w1-hS-tlS" secondAttribute="centerX" id="zg4-2U-ib0"/>
+                            <constraint firstItem="BTg-fZ-LJJ" firstAttribute="bottom" secondItem="HgX-FJ-2L4" secondAttribute="bottom" constant="70" id="zxa-fh-3ge"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="BTg-fZ-LJJ"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Movies upcoming " id="YlA-wi-IYn"/>
+                    <navigationItem key="navigationItem" title="Upcoming Movies" id="YlA-wi-IYn"/>
                     <connections>
+                        <outlet property="TitleLeading" destination="gsR-Se-IYk" id="SI8-nl-Rrh"/>
+                        <outlet property="VoteAverageTrailing" destination="mWf-1r-2CF" id="aO2-2i-fnb"/>
+                        <outlet property="activityIndicator" destination="rHO-kE-i1Q" id="faU-LC-hKQ"/>
                         <outlet property="collectionView" destination="HgX-FJ-2L4" id="gmN-VG-y0Z"/>
+                        <outlet property="movieTitle" destination="b2C-Ck-mk3" id="FWe-l8-eLq"/>
+                        <outlet property="movieVoteAverage" destination="sgz-MK-cg4" id="Hqg-4e-XZF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eQ4-wC-97s" userLabel="First Responder" sceneMemberID="firstResponder"/>
