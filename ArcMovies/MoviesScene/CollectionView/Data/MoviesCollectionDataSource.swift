@@ -19,13 +19,7 @@ extension MoviesCollectionDataSource : UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(
-                withReuseIdentifier: String(describing: MoviePosterCell.self),
-                for: indexPath )
-            as? MoviePosterCell
-            else { return MoviePosterCell()  }
-        return cell
+        return collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: MoviePosterCell.self), for: indexPath)
     }
-    
     
 }
