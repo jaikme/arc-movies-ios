@@ -28,18 +28,22 @@ public enum BaseURLType : String {
 enum MovieDBAPIEndpoint {
     
     case getUpcomingMovies(Int)
+    case getMovieDetails(Int)
 }
 
 
 // MARK: - URLConvertible
 
 extension MovieDBAPIEndpoint: URLConvertible {
-    
+    // TODO: Remove api_key redundance
     func url() -> URL? {
         switch self {
         case .getUpcomingMovies(let page):
             let endpoint = "movie/upcoming"
             return URL(string: "\(MovieDBAPI.baseUrl.rawValue)\(endpoint)?api_key=\(MovieDBAPI.apiKey)&page=\(page)")
+        case .getMovieDetails(let movieId):
+            let endpoint = "movie/\(movieId)"
+            return URL(string: "\(MovieDBAPI.baseUrl.rawValue)\(endpoint)?api_key=\(MovieDBAPI.apiKey)")
         }
     }
 }
