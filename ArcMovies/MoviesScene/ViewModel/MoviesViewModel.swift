@@ -8,10 +8,10 @@
 
 import Foundation
 
-// MARK: - MovieViewModel
+// MARK: - MoviesViewModel
 
-/// _MovieViewModel_ is a model representing an Movie with title and poster image url
-struct MovieViewModel {
+/// _MoviesViewModel_ is a model representing an Movie with title and poster image url
+struct MoviesViewModel {
     
     let title: String
     let posterURL: URL?
