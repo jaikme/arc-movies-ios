@@ -19,10 +19,10 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <view clipsSubviews="YES" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="wd8-3n-dfw" userLabel="PosterContainer">
-                        <rect key="frame" x="0.0" y="0.0" width="398" height="628"/>
+                        <rect key="frame" x="2" y="2" width="394" height="624"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Fq5-g0-E4Y">
-                                <rect key="frame" x="0.0" y="0.0" width="398" height="628"/>
+                                <rect key="frame" x="0.0" y="0.0" width="394" height="624"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
                         </subviews>
@@ -30,8 +30,8 @@
                         <constraints>
                             <constraint firstItem="Fq5-g0-E4Y" firstAttribute="top" secondItem="wd8-3n-dfw" secondAttribute="top" id="6oK-cV-dEh"/>
                             <constraint firstAttribute="bottom" secondItem="Fq5-g0-E4Y" secondAttribute="bottom" id="6xN-UJ-mLu"/>
-                            <constraint firstItem="Fq5-g0-E4Y" firstAttribute="centerY" secondItem="wd8-3n-dfw" secondAttribute="centerY" id="TTb-L1-1jB"/>
-                            <constraint firstItem="Fq5-g0-E4Y" firstAttribute="centerX" secondItem="wd8-3n-dfw" secondAttribute="centerX" id="dHD-Wh-UBJ"/>
+                            <constraint firstItem="Fq5-g0-E4Y" firstAttribute="centerX" secondItem="wd8-3n-dfw" secondAttribute="centerX" id="GS5-ho-1dT"/>
+                            <constraint firstItem="Fq5-g0-E4Y" firstAttribute="centerY" secondItem="wd8-3n-dfw" secondAttribute="centerY" id="GTz-YP-LZq"/>
                             <constraint firstAttribute="trailing" secondItem="Fq5-g0-E4Y" secondAttribute="trailing" id="fcS-i2-0ZQ"/>
                             <constraint firstItem="Fq5-g0-E4Y" firstAttribute="leading" secondItem="wd8-3n-dfw" secondAttribute="leading" id="ggG-V1-PXa"/>
                         </constraints>
@@ -45,11 +45,11 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="ENe-3r-yZP" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="07v-EK-vSL"/>
-                <constraint firstItem="wd8-3n-dfw" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="AH1-qI-Ljh"/>
-                <constraint firstItem="wd8-3n-dfw" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="Twn-KS-v0C"/>
+                <constraint firstItem="wd8-3n-dfw" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="2" id="AH1-qI-Ljh"/>
+                <constraint firstItem="wd8-3n-dfw" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="2" id="Twn-KS-v0C"/>
                 <constraint firstItem="ENe-3r-yZP" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="WMO-FJ-waA"/>
-                <constraint firstAttribute="trailing" secondItem="wd8-3n-dfw" secondAttribute="trailing" id="ftP-G0-O7O"/>
-                <constraint firstAttribute="bottom" secondItem="wd8-3n-dfw" secondAttribute="bottom" id="kzJ-IM-HrQ"/>
+                <constraint firstAttribute="trailing" secondItem="wd8-3n-dfw" secondAttribute="trailing" constant="2" id="ftP-G0-O7O"/>
+                <constraint firstAttribute="bottom" secondItem="wd8-3n-dfw" secondAttribute="bottom" constant="2" id="kzJ-IM-HrQ"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="398" height="628"/>
