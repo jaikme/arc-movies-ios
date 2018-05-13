@@ -13,7 +13,7 @@ final class MoviePosterCell: UICollectionViewCell {
     @IBOutlet private weak var Poster: UIImageView!
     @IBOutlet private weak var PosterContainer: UIView!
     
-    private let cornerRadius: CGFloat = 8
+    private let cornerRadius: CGFloat = 10
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -65,8 +65,8 @@ extension MoviePosterCell {
             $0.layer.masksToBounds = false
             $0.layer.shadowColor = UIColor.black.cgColor
             $0.layer.shadowRadius = 10
-            $0.layer.shadowOpacity = 0.3
-            $0.layer.shadowOffset = CGSize(width: 1, height: 1)
+            $0.layer.shadowOpacity = 0.4
+            $0.layer.shadowOffset = CGSize(width: 0, height: 3)
             $0.layer.shouldRasterize = true
             $0.layer.shadowPath = UIBezierPath(roundedRect: CGRect(x: 0, y: 0, width: Poster.bounds.width, height: PosterContainer.bounds.height), cornerRadius: PosterContainer.layer.cornerRadius).cgPath
         }
