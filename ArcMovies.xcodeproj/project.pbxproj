@@ -46,7 +46,6 @@
 		E404F95320A900C300FF42C3 /* MovieDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = E404F95220A900C300FF42C3 /* MovieDetails.swift */; };
 		E404F95520A902E600FF42C3 /* MovieRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E404F95420A902E600FF42C3 /* MovieRouter.swift */; };
 		E404F95720A9059B00FF42C3 /* MovieInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E404F95620A9059B00FF42C3 /* MovieInteractor.swift */; };
-		E404F95B20A90DA000FF42C3 /* MovieTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E404F95A20A90DA000FF42C3 /* MovieTableViewDataSource.swift */; };
 		E49AED8C20A4C09200ADD183 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E49AED8B20A4C09200ADD183 /* AppDelegate.swift */; };
 		E49AED9320A4C09800ADD183 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E49AED9220A4C09800ADD183 /* Assets.xcassets */; };
 		E49AED9620A4C09800ADD183 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E49AED9420A4C09800ADD183 /* LaunchScreen.storyboard */; };
@@ -109,7 +108,6 @@
 		E404F95220A900C300FF42C3 /* MovieDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetails.swift; sourceTree = "<group>"; };
 		E404F95420A902E600FF42C3 /* MovieRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieRouter.swift; sourceTree = "<group>"; };
 		E404F95620A9059B00FF42C3 /* MovieInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieInteractor.swift; sourceTree = "<group>"; };
-		E404F95A20A90DA000FF42C3 /* MovieTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTableViewDataSource.swift; sourceTree = "<group>"; };
 		E49AED8820A4C09200ADD183 /* ArcMovies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ArcMovies.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E49AED8B20A4C09200ADD183 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E49AED9220A4C09800ADD183 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -147,7 +145,6 @@
 		E404F90620A7F17500FF42C3 /* MovieDetailsScene */ = {
 			isa = PBXGroup;
 			children = (
-				E404F95820A90D8200FF42C3 /* TableView */,
 				E404F94120A8F61800FF42C3 /* Router */,
 				E404F94020A8F61100FF42C3 /* Presenter */,
 				E404F93F20A8F60D00FF42C3 /* Model */,
@@ -264,22 +261,6 @@
 				E404F94820A8F86900FF42C3 /* MovieViewModel.swift */,
 			);
 			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		E404F95820A90D8200FF42C3 /* TableView */ = {
-			isa = PBXGroup;
-			children = (
-				E404F95920A90D8B00FF42C3 /* Data */,
-			);
-			path = TableView;
-			sourceTree = "<group>";
-		};
-		E404F95920A90D8B00FF42C3 /* Data */ = {
-			isa = PBXGroup;
-			children = (
-				E404F95A20A90DA000FF42C3 /* MovieTableViewDataSource.swift */,
-			);
-			path = Data;
 			sourceTree = "<group>";
 		};
 		E49AED7F20A4C09200ADD183 = {
@@ -594,7 +575,6 @@
 				E404F93420A8236D00FF42C3 /* ImageViewHelper.swift in Sources */,
 				E404F90520A7EF6200FF42C3 /* MoviesConfigurator.swift in Sources */,
 				E404F92C20A819FF00FF42C3 /* ImageManager.swift in Sources */,
-				E404F95B20A90DA000FF42C3 /* MovieTableViewDataSource.swift in Sources */,
 				E404F8F220A7EE1E00FF42C3 /* MoviesPresenter.swift in Sources */,
 				E404F93B20A8E3CB00FF42C3 /* ColorHelper.swift in Sources */,
 				E404F94B20A8FB4500FF42C3 /* MovieDetailsTable.swift in Sources */,

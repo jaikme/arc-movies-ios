@@ -52,9 +52,7 @@ extension MoviesRouter: MoviesRouterProtocol {
     func navigateToMovie(atIndexPath indexPath: IndexPath) {
         
         let storyboard = UIStoryboard(name: "MovieDetails", bundle: nil)
-        
-        print(viewController?.output.movies, indexPath.row )
-        
+
         // Instantiate MovieDetailsController
         guard let controller = storyboard.instantiateViewController(withIdentifier: "movieDetailsController") as? MovieDetailsViewController,
             let movies = viewController?.moviesViewModels, indexPath.row < movies.count
