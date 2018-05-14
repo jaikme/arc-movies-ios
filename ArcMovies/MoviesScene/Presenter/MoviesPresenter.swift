@@ -15,9 +15,7 @@ import UIKit
 // MARK: - MoviesPresenterInput
 
 /// _MoviesPresenterInput_ is a protocol for presenter input behaviours
-protocol MoviesPresenterInput: MoviesInteractorOutput {
-    
-}
+protocol MoviesPresenterInput: MoviesInteractorOutput {}
 
 
 // MARK: - MoviesPresenterOutput
