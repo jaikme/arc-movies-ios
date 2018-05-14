@@ -175,7 +175,7 @@ extension MoviePosterCell {
     private func defineColors(with image: UIImage?) {
         guard let image = image else { return }
         DispatchQueue.main.async {
-            image.getColors { [weak self] colors in
+            image.getColors(quality: .low) { [weak self] colors in
                 self?.setShadowColor(with: colors.background.cgColor)
 
                 // Picks the primary color and darkens it
@@ -185,6 +185,7 @@ extension MoviePosterCell {
                 // Add border to avoid white poster background
                 self?.PosterContainer.layer.borderColor = darkColor.withAlphaComponent(0.2).cgColor
                 self?.PosterContainer.layer.borderWidth = 1
+                
             }
         }
     }

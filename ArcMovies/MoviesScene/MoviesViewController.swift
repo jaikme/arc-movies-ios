@@ -29,7 +29,7 @@ class MoviesViewController: UIViewController {
     // The collection view to show the movies and change exhibition
     @IBOutlet private weak var collectionView: UICollectionView!
     @IBOutlet private weak var activityIndicator: UIActivityIndicatorView!
-    @IBOutlet private weak var movieTitle: UILabel!
+    @IBOutlet internal weak var movieTitle: UILabel!
     @IBOutlet private weak var movieVoteAverage: UILabel!
     @IBOutlet private weak var TitleLeading: NSLayoutConstraint!
     @IBOutlet private weak var VoteAverageTrailing: NSLayoutConstraint!
@@ -199,7 +199,7 @@ extension MoviesViewController : Colorable {
     
     func dominantColor(_ primary: UIColor) {
         DispatchQueue.main.async {
-            UIView.transition(with: self.movieTitle, duration: 0.2, options: .transitionCrossDissolve, animations: {
+            UIView.transition(with: self.movieTitle, duration: 0.6, options: [.transitionCrossDissolve, .curveEaseOut], animations: {
                 self.movieTitle.textColor = primary
                 self.movieVoteAverage.textColor = primary
             }, completion: nil)

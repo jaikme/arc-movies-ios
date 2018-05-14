@@ -12,9 +12,17 @@
         <!--Navigation Controller-->
         <scene sceneID="hrj-jb-M2K">
             <objects>
-                <navigationController navigationBarHidden="YES" id="2hx-be-zYQ" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="2hx-be-zYQ" sceneMemberID="viewController">
+                    <nil key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Hbu-VC-838">
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="484-Us-S64" kind="relationship" relationship="rootViewController" id="JmC-aI-drp"/>
@@ -35,7 +43,7 @@
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="rHO-kE-i1Q">
                                 <rect key="frame" x="150" y="274" width="20" height="20"/>
                             </activityIndicatorView>
-                            <collectionView multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="HgX-FJ-2L4">
+                            <collectionView contentMode="scaleToFill" delaysContentTouches="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="HgX-FJ-2L4">
                                 <rect key="frame" x="0.0" y="84.5" width="320" height="403.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="b3o-PY-AhB">
@@ -91,7 +99,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="BTg-fZ-LJJ"/>
                     </view>
-                    <navigationItem key="navigationItem" id="YlA-wi-IYn"/>
+                    <navigationItem key="navigationItem" id="YlA-wi-IYn">
+                        <barButtonItem key="backBarButtonItem" title=" " id="ptF-Jt-4jf"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="TitleLeading" destination="gsR-Se-IYk" id="SI8-nl-Rrh"/>
                         <outlet property="VoteAverageTrailing" destination="mWf-1r-2CF" id="aO2-2i-fnb"/>
