@@ -13,7 +13,7 @@ extension MoviesViewController : UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let cell = collectionView.cellForItem(at: indexPath) as? MoviePosterCell else { return }
         cell.isTouched = true
-        
+        router.navigateToMovie(atIndexPath: indexPath)
         
     }
     
