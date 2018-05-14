@@ -8,7 +8,6 @@ A very simple and limited app to show the list of upcoming movies.
 
 ## Prerequisites
 
-* [Carthage](https://github.com/Carthage/Carthage)
 * MacOS 10.13 or higher
 * Xcode 9.2 or higher
 
