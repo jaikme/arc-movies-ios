@@ -76,7 +76,13 @@ extension MoviesInteractor: MoviesInteractorInput {
                 
             } else if let moviesArray = movies {
                 
-                self.movies = moviesArray
+                if movies == nil {
+                    self.movies = moviesArray
+                }
+                else {
+                    self.movies?.append(contentsOf: moviesArray)
+                }
+                
                 self.output.presentMovies(movies: moviesArray)
             }
             

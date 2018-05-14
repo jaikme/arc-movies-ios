@@ -26,16 +26,11 @@ final class MovieDetailsTable : UITableView {
             setReleaseDate()
             setGenres()
             setOverview()
-            
-            
-        }
-    }
-    
-    var movie: Movie? {
-        didSet {
             setTitle()
+            
         }
     }
+
 }
 
 // MARK: Lifecycles
@@ -71,7 +66,7 @@ extension MovieDetailsTable {
     }
     
     private func setTitle() {
-        movieTitle.text = movie?.title
+        movieTitle.text = movieDetails?.title
     }
     
     private func showHiddenViews() {

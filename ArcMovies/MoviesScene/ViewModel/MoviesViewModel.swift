@@ -12,7 +12,7 @@ import Foundation
 
 /// _MoviesViewModel_ is a model representing an Movie with title and poster image url
 struct MoviesViewModel {
-    
+    let id: Int
     let title: String
     let voteAverage: Double
     let posterURL: URL?

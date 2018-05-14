@@ -39,7 +39,7 @@ final class MovieDetailsViewController: UITableViewController {
     var router: MovieRouterProtocol!
     var dominantColor: UIColor?
     
-    var movie: Movie?
+    var movie: MoviesViewModel?
     
     @IBAction func closeTouchAction(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
@@ -53,7 +53,7 @@ final class MovieDetailsViewController: UITableViewController {
     /// - parameter configurator: The configurator
     ///
     /// - returns: The instance of _MovieDetailsViewController_
-    init(movie: Movie, configurator: MovieConfigurator = MovieConfigurator.sharedInstance) {
+    init(movie: MoviesViewModel, configurator: MovieConfigurator = MovieConfigurator.sharedInstance) {
         
         self.movie = movie
         
@@ -152,7 +152,6 @@ extension MovieDetailsViewController {
 extension MovieDetailsViewController: MovieViewControllerInput, ErrorPresentable {
     func displayMovie(viewModel: MovieViewModel) {
         guard let tableDetails = self.tableView as? MovieDetailsTable else { return }
-        tableDetails.movie = movie
         tableDetails.movieDetails = viewModel
         tableDetails.configColors(with: dominantColor)
         configDetails()

@@ -12,7 +12,8 @@ import Foundation
 
 /// _Movie_ is a model representation of movie details
 struct MovieDetails {
-
+    
+    let id: Int
     let title: String
     let posterPath: String
     let overview: String
@@ -37,6 +38,7 @@ extension MovieDetails : Parsable {
     static func fromJSON(json: [String: Any]) -> MovieDetails? {
         
         guard
+            let id = json[Constants.idKey] as? Int,
             let title = json[Constants.titleKey] as? String,
             let posterPath = json[Constants.posterPathKey] as? String,
             let overview = json[Constants.overviewKey] as? String,
@@ -60,7 +62,7 @@ extension MovieDetails : Parsable {
             
         }
 
-        return MovieDetails(title: title, posterPath: posterPath, overview: overview, releaseDate: releaseDate, genres: genresString, posterURL: posterUrl)
+        return MovieDetails(id: id, title: title, posterPath: posterPath, overview: overview, releaseDate: releaseDate, genres: genresString, posterURL: posterUrl)
     }
 }
 

@@ -63,7 +63,7 @@ extension MoviePresenter: MoviePresenterInput {
     /// - parameter movie: A movie objet
     func presentDetails(details: MovieDetails) {
         
-        let viewModel = MovieViewModel(title: details.title, overview: details.overview, releaseDate: details.releaseDate, genres: details.genres, posterURL: details.posterURL)
+        let viewModel = MovieViewModel(id: details.id, title: details.title, overview: details.overview, releaseDate: details.releaseDate, genres: details.genres, posterURL: details.posterURL)
         output?.displayMovie(viewModel: viewModel)
     }
     

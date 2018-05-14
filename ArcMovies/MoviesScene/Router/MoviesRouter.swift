@@ -53,9 +53,11 @@ extension MoviesRouter: MoviesRouterProtocol {
         
         let storyboard = UIStoryboard(name: "MovieDetails", bundle: nil)
         
+        print(viewController?.output.movies, indexPath.row )
+        
         // Instantiate MovieDetailsController
         guard let controller = storyboard.instantiateViewController(withIdentifier: "movieDetailsController") as? MovieDetailsViewController,
-            let movies = viewController?.output.movies, indexPath.row < movies.count
+            let movies = viewController?.moviesViewModels, indexPath.row < movies.count
         else { return }
         
         controller.movie = movies[indexPath.row]

@@ -62,7 +62,7 @@ extension MoviesPresenter: MoviesPresenterInput {
         
         let viewModels = movies.compactMap { movie -> MoviesViewModel in
             
-            return MoviesViewModel(title: movie.title, voteAverage: movie.voteAverage, posterURL: movie.posterURL)
+            return MoviesViewModel(id: movie.id, title: movie.title, voteAverage: movie.voteAverage, posterURL: movie.posterURL)
         }
         
         output?.displayMovies(viewModels: viewModels)
