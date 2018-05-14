@@ -124,7 +124,7 @@ extension MoviesViewController {
     private func commonInit() {
         let layout = MoviesFlowLayout(itemSize: posterSize)
         
-        setupTitle()
+        //setupTitle()
         setupActivityIndicator()
         setupCollectionView(with: layout)
     }
@@ -220,20 +220,21 @@ extension MoviesViewController : MoviesViewControllerInput, ErrorPresentable {
         
         let inset = (collectionView.bounds.size.width / 2 - posterSize.width / 2) + 2
         
-        // Set title position
-        TitleLeading.constant = inset
-        
-        // Set vote label position
-        VoteAverageTrailing.constant = inset
-        
-        // Show movieTitle after fetch
         UIView.animate(withDuration: 0.2) {
+            // Show movieTitle after fetch
             self.movieTitle.alpha = 1
-        }
+            
+            // Set title position
+            self.TitleLeading.constant = inset
+            
+            // Set vote label position
+            self.VoteAverageTrailing.constant = inset
         
-        // Show vite label after fetch
-        UIView.animate(withDuration: 0.2) {
+            // Show vite label after fetch
             self.movieVoteAverage.alpha = 1
+            
+            self.view.layoutSubviews()
+            self.view.layoutIfNeeded()
         }
     }
     
