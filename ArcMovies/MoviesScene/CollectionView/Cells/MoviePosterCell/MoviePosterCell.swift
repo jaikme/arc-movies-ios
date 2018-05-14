@@ -47,7 +47,6 @@ final class MoviePosterCell: UICollectionViewCell {
         super.prepareForReuse()
         Poster.alpha = 0
         Poster.image = nil
-        colorable.dominantColor(UIColor.black)
         shadowView?.alpha = 0
         shadowView?.layer.shadowPath = UIBezierPath(roundedRect: CGRect(x: 0, y: 0, width: bounds.width, height: bounds.height), cornerRadius: PosterContainer.layer.cornerRadius).cgPath
     }
