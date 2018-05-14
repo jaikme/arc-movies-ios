@@ -37,8 +37,13 @@ final class MovieDetailsViewController: UITableViewController {
     
     var output: MovieViewControllerOutput!
     var router: MovieRouterProtocol!
-
+    var dominantColor: UIColor?
+    
     var movie: Movie?
+    
+    @IBAction func closeTouchAction(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
+    }
     
     // MARK: - Initializers
     
@@ -101,12 +106,34 @@ extension MovieDetailsViewController {
         // Show the Navigation Bar
         self.navigationController?.setNavigationBarHidden(true, animated: animated)
     }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
+    
+    override var preferredStatusBarUpdateAnimation: UIStatusBarAnimation {
+        return .slide
+    }
 }
 
 
 // MARK: Configs
 
-//extension MoviesViewController {}
+extension MovieDetailsViewController {
+    
+    private func configDetails() {
+        setTitle()
+    }
+    
+    private func setTitle() {
+        self.title = ""
+    }
+
+}
 
 
 // MARK: - Event handling
@@ -125,13 +152,15 @@ extension MovieDetailsViewController {
 extension MovieDetailsViewController: MovieViewControllerInput, ErrorPresentable {
     func displayMovie(viewModel: MovieViewModel) {
         guard let tableDetails = self.tableView as? MovieDetailsTable else { return }
+        tableDetails.movie = movie
         tableDetails.movieDetails = viewModel
+        tableDetails.configColors(with: dominantColor)
+        configDetails()
         tableDetails.reloadData()
         tableDetails.refreshControl?.endRefreshing()
     }
     
     func displayError(viewModel: ErrorViewModel) {
-        
         tableView.refreshControl?.endRefreshing()
         self.presentError(viewModel: viewModel)
     }
