@@ -19,7 +19,7 @@ Run this in your shell:
 git clone https://github.com/jaikme/arc-movies-ios.git
 cd arc-movies-ios
 open ArcMovies.xcodeproj
-Run by select "Product" > "Run" at menu or by pressing [Cmd + R]
+Run by selecting "Product" > "Run" at menu or by pressing [Cmd + R]
 ```
 
 ## Tech Stack
