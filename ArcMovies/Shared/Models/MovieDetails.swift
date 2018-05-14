@@ -17,6 +17,7 @@ struct MovieDetails {
     let posterPath: String
     let overview: String
     let releaseDate: String
+    let genres: String
     let posterURL: URL?
 }
 
@@ -26,8 +27,10 @@ extension MovieDetails : Parsable {
         
         static let idKey = "id"
         static let titleKey = "title"
-        static let posterPathKey = "poster_path"
+        static let posterPathKey = "backdrop_path"
         static let overviewKey = "overview"
+        static let genresKey = "genres"
+        static let genreKey = "name"
         static let releaseDateKey = "release_date"
     }
     
@@ -42,7 +45,22 @@ extension MovieDetails : Parsable {
                 return nil
         }
         
-        return MovieDetails(title: title, posterPath: posterPath, overview: overview, releaseDate: releaseDate, posterURL: posterUrl)
+        var genresString = "Not defined"
+        
+        if let genresArray = json[Constants.genresKey] as? [[String: Any]] {
+            
+            let genres = genresArray.compactMap { (genresArray) -> String? in
+               guard let genre = genresArray[Constants.genreKey] as? String else {
+                    return nil
+                }
+                return genre
+            }
+            
+            genresString = genres.joined(separator: ", ")
+            
+        }
+
+        return MovieDetails(title: title, posterPath: posterPath, overview: overview, releaseDate: releaseDate, genres: genresString, posterURL: posterUrl)
     }
 }
 
