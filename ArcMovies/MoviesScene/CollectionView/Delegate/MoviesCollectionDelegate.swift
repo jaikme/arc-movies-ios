@@ -18,11 +18,20 @@ extension MoviesViewController : UICollectionViewDelegate {
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        //super.collectionView(collectionView, willDisplay: cell, forItemAt: indexPath)
         guard let cell = cell as? MoviePosterCell else { return }
         let items = moviesViewModels
         let index = indexPath.row % items.count
         let model = items[index]
         cell.viewModel = model
+        checkNextPage(at: index)
     }
+    
+    // Simple page handler
+    func checkNextPage(at index: Int) {
+        guard index > moviesViewModels.count - 4, isPerformingPage == false else { return }
+        MoviesStore.moviesPage += 1
+        output.fetchMovies()
+        isPerformingPage = true
+    }
+    
 }

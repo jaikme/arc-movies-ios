@@ -22,6 +22,7 @@ protocol MoviesViewControllerOutput {
     
     /// Tells the output (interactor) to fetch upcoming movies
     func fetchMovies()
+
 }
 
 class MoviesViewController: UIViewController {
@@ -59,7 +60,7 @@ class MoviesViewController: UIViewController {
     internal var output: MoviesViewControllerOutput!
     internal var router: MoviesRouterProtocol!
     internal var moviesViewModels: [MoviesViewModel] = []
-    
+    internal var isPerformingPage: Bool = false
     // MARK: - Initializers
     
     /// Initializes an instance of _MoviesViewController_ with a configurator
@@ -211,7 +212,8 @@ extension MoviesViewController : Colorable {
 
 extension MoviesViewController : MoviesViewControllerInput, ErrorPresentable {
     func displayMovies(viewModels: [MoviesViewModel]) {
-        moviesViewModels = viewModels
+        moviesViewModels.append(contentsOf: viewModels)
+
         collectionView.reloadData()
         activityIndicator.stopAnimating()
         
@@ -236,6 +238,7 @@ extension MoviesViewController : MoviesViewControllerInput, ErrorPresentable {
             self.view.layoutSubviews()
             self.view.layoutIfNeeded()
         }
+        isPerformingPage = false
     }
     
     func displayError(viewModel: ErrorViewModel) {

@@ -15,10 +15,10 @@ import Foundation
 final class MoviesStore {
     
     private struct Constants {
-        static let moviesPage = 1
         static let moviesDictionaryKey = "results"
     }
     
+    static var moviesPage = 1
     private let networkClient: NetworkClientProtocol
     
     
@@ -45,7 +45,7 @@ extension MoviesStore: MoviesStoreProtocol {
     /// - parameter completion: The completion block
     func fetchMovies(completion: @escaping ([Movie]?, Error?) -> ()) {
         
-        let page = Constants.moviesPage
+        let page = MoviesStore.moviesPage
         guard let url = MovieDBAPIEndpoint.getUpcomingMovies(page).url() else {
             
             completion([], MoviesStoreError.invalidURL)
