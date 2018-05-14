@@ -11,5 +11,8 @@ import UIKit
 /// _MovieViewModel_ is a model representing an Movie with more information
 struct MovieViewModel {
     let title: String
+    let overview: String
+    let releaseDate: String
+    let genres: String
     let posterURL: URL?
 }
