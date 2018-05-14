@@ -51,12 +51,17 @@ extension MoviesRouter: MoviesRouterProtocol {
     /// - parameter indexPath: The selected index path
     func navigateToMovie(atIndexPath indexPath: IndexPath) {
         
-//        if let movies = viewController?.output.movies, indexPath.row < movies.count {
-//
-//            let selectedMovie = movies[indexPath.row]
-//
+        let storyboard = UIStoryboard(name: "MovieDetails", bundle: nil)
+        guard let nav = storyboard.instantiateViewController(withIdentifier: "movieDetailsNavigationController") as? UINavigationController,
+            let controller = nav.topViewController as? MovieDetailsViewController,
+        let movies = viewController?.output.movies, indexPath.row < movies.count
+        else { return }
+        
+        controller.movie = movies[indexPath.row]
+        //viewController?.present(nav, animated: true, completion: nil)
+
 //            let movieViewController = MovieDetailsViewController(movie: selectedMovie)
-//            viewController?.navigationController?.pushViewController(MovieDetailsViewController, animated: true)
-//        }
+            viewController?.navigationController?.pushViewController(controller, animated: true)
+
     }
 }
