@@ -47,12 +47,12 @@ final class MovieDetailsViewController: UITableViewController {
     
     // MARK: - Initializers
     
-    /// Initializes an instance of _ArtistViewController_ with artist and configurator
+    /// Initializes an instance of _MovieDetailsViewController_ with movie and configurator
     ///
-    /// - parameter artist:       The artist
+    /// - parameter movie:       The movie
     /// - parameter configurator: The configurator
     ///
-    /// - returns: The instance of _ArtistViewController_
+    /// - returns: The instance of _MovieDetailsViewController_
     init(movie: Movie, configurator: MovieConfigurator = MovieConfigurator.sharedInstance) {
         
         self.movie = movie
@@ -147,7 +147,7 @@ extension MovieDetailsViewController {
     }
 }
 
-// MARK: - ArtistPresenterOutput
+// MARK: - MoviePresenterOutput
 
 extension MovieDetailsViewController: MovieViewControllerInput, ErrorPresentable {
     func displayMovie(viewModel: MovieViewModel) {

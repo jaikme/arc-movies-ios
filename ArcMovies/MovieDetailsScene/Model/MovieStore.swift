@@ -19,11 +19,11 @@ final class MovieStore {
     
     // MARK: - Initializers
     
-    /// Initializes an instance of _AlbumsAPIStore_ with an object that conforms to the protocol _NetworkClientProtocol_
+    /// Initializes an instance of _MovieStore_ with an object that conforms to the protocol _NetworkClientProtocol_
     ///
     /// - parameter networkClient: The object to be used to send requests to the API
     ///
-    /// - returns: The instance of _AlbumsAPIStore_
+    /// - returns: The instance of _MovieStore_
     init(networkClient: NetworkClientProtocol = NetworkClient.sharedInstance) {
         
         self.networkClient = networkClient

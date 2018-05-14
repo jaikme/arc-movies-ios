@@ -34,7 +34,7 @@ protocol MovieInteractorOutput {
 
 // MARK: - MovieInteractor
 
-/// _MovieInteractor_ is an interactor responsible for artist details business logic
+/// _MovieInteractor_ is an interactor responsible for movie details business logic
 final class MovieInteractor: MovieInteractorInput {
     
     var movieDetails: MovieDetails?
